@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loginPage</title>
+    <style>
+      div {
+        width: 27.5%;
+        border: 1px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        height: 410px;
+        margin: auto;
+        margin-top: 75px;
+        background-color: rgb(25, 186, 17);
+        padding-top: 4px;
+      }
+      p {
+        text-align: center;
+        margin-bottom: 45px;
+        margin-top: 43px;
+        color: black;
+        font-size: 35px;
+        font-weight: bold;
+      }
+      .item {
+        display: block;
+        margin: auto;
+        width: 70%;
+        height: 45px;
+        margin-bottom: 25px;
+        padding-left: 14px;
+        border: 1px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        background-color: rgb(242, 242, 242);
+        font-size: 14px;
+      }
+      .btn {
+        display: block;
+        margin: auto;
+        width: 74.5%;
+        height: 55px;
+        margin-bottom: 10px;
+        margin-top: 40px;
+        color: white;
+        background-color: #151e1e;
+        border: 1px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        cursor:pointer;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div>
+      <p> Login</p>
+      <input type="email" placeholder="Email" class="item" id="email" />
+      <input type="text" placeholder="Password" class="item" id="password"/>
+      <button class="btn">LOGIN</button>
+
+    </div>
+  </body>
+</html>
+
+<script>
+    let newarr=JSON.parse(localStorage.getItem("Credentials"));
+    document.querySelector("button").addEventListener("click", myFunc);
+    function myFunc() {
+        let inpEm=document.querySelector("#email").value;
+        let inpPsd=document.querySelector("#password").value;
+        
+        let count=0;
+        newarr.forEach(function(el){
+            if(inpEm==el.Email && inpPsd==el.Password) {
+                count++;
+            }
+        });
+        if(count==0) {
+        alert("Wrong Credentials");
+        } else {
+            alert("login successful");
+        }
+        document.querySelector("#email").value="";
+        document.querySelector("#password").value="";
+    }
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option-Login</title>
+    <style>
+        body{
+            background-color: rgb(24, 206, 24);
+        }
+        h1 {
+            color:black;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 140px;
+        }
+        div {
+            width:40%;
+            margin:auto;
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-around;
+        }
+        button {
+            width:140px;
+            height:60px;
+            font-size: large;
+            font-weight: bold;
+            border:2.5px solid red;
+            border-radius: 15px;
+            background-color: bisque;
+            cursor:pointer
+        }
+    </style>
+</head>
+<body>
+    <h1>Hey! You Can Login Here</h1>
+    <div>
+        <button>Click on Me to Login</button>
+        <button>Return</button>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("button").addEventListener("click",toLogin);
+    document.querySelector("button+button").addEventListener("click",toSignUp);
+    function toLogin() {
+        window.open("logIn.html","_self"); 
+    }
+    function toSignUp() {
+        history.back();
+       window.open("signUp.html","_self"); 
+    }
+</script>
